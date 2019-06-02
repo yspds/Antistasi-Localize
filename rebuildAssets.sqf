@@ -1,7 +1,7 @@
 
 _resourcesFIA = server getVariable "resourcesFIA";
 
-if (_resourcesFIA < 5000) exitWith {hint "You do not have enough money to rebuild any Asset. You need 5.000 €"};
+if (_resourcesFIA < 5000) exitWith {hint "您没有足够的资金来重建任何资产。 你需要5000€"};
 
 _destroyedCities = destroyedCities - ciudades;
 
@@ -20,13 +20,13 @@ _posicionTel = posicionTel;
 
 _sitio = [marcadores,_posicionTel] call BIS_fnc_nearestPosition;
 
-if (getMarkerPos _sitio distance _posicionTel > 50) exitWith {hint "You must click near a map marker"};
+if (getMarkerPos _sitio distance _posicionTel > 50) exitWith {hint "您必须在地图标记附近单击"};
 
-if ((not(_sitio in _destroyedCities)) and (!(_sitio in puestos))) exitWith {hint "You cannot rebuild that"};
+if ((not(_sitio in _destroyedCities)) and (!(_sitio in puestos))) exitWith {hint "你不能重建那个"};
 
 _salir = false;
 _antenaMuerta = [];
-_texto = "That Outpost does not have a destroyed Radio Tower";
+_texto = "Outpost没有被毁的无线电塔";
 if (_sitio in puestos) then
 	{
 	_antenasMuertas = antenasMuertas select {_x inArea _sitio};
@@ -35,7 +35,7 @@ if (_sitio in puestos) then
 		if (lados getVariable [_sitio, sideUnknown] != buenos) then
 			{
 			_salir = true;
-			_texto = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1",nameBuenos];
+			_texto = format ["您不能在不属于 %1 的前哨站中重建无线电塔",nameBuenos];
 			}
 		else
 			{

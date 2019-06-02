@@ -1,11 +1,11 @@
 private ["_veh", "_coste","_tipo"];
 _veh = cursortarget;
 
-if (isNull _veh) exitWith {hint "You are not looking to any vehicle"};
+if (isNull _veh) exitWith {hint "你不在看任何车辆"};
 
-if (_veh distance getMarkerPos respawnBuenos > 50) exitWith {hint "Vehicle must be closer than 50 meters to the flag"};
+if (_veh distance getMarkerPos respawnBuenos > 50) exitWith {hint "车辆必须距离旗帜不到50米"};
 
-if ({isPlayer _x} count crew _veh > 0) exitWith {hint "In order to sell, vehicle must be empty."};
+if ({isPlayer _x} count crew _veh > 0) exitWith {hint "为了卖出车辆，车厢必须是空的"};
 
 _owner = _veh getVariable "duenyo";
 _exit = false;
@@ -17,7 +17,7 @@ if (!isNil "_owner") then
 		};
 	};
 
-if (_exit) exitWith {hint "You are not owner of this vehicle and you cannot sell it"};
+if (_exit) exitWith {hint "你不是这辆车的主人，你无法卖掉它"};
 
 _tipo = typeOf _veh;
 _coste = 0;
@@ -77,7 +77,7 @@ else
 		};
 	};
 
-if (_coste == 0) exitWith {hint "The vehicle you are looking is not suitable in our marketplace"};
+if (_coste == 0) exitWith {hint "您正在寻找的车辆不适合我们的市场"};
 
 _coste = round (_coste * (1-damage _veh));
 
@@ -90,7 +90,7 @@ if (_veh in reportedVehs) then {reportedVehs = reportedVehs - [_veh]; publicVari
 
 if (_veh isKindOf "StaticWeapon") then {deleteVehicle _veh};
 
-hint "Vehicle Sold";
+hint "车辆已卖出";
 
 
 

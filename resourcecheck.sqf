@@ -64,7 +64,7 @@ while {true} do
 	// revuelta civil!!
 	if ((_prestigeNATO < _prestigeSDK) and (lados getVariable [_ciudad,sideUnknown] == malos)) then
 		{
-		["TaskSucceeded", ["", format ["%1 joined %2",[_ciudad, false] call A3A_fnc_fn_location,nameBuenos]]] remoteExec ["BIS_fnc_showNotification",buenos];
+		["TaskSucceeded", ["", format ["%1 加入 %2",[_ciudad, false] call A3A_fnc_fn_location,nameBuenos]]] remoteExec ["BIS_fnc_showNotification",buenos];
 		lados setVariable [_ciudad,buenos,true];
 		_nul = [5,0] remoteExec ["A3A_fnc_prestige",2];
 		_mrkD = format ["Dum%1",_ciudad];
@@ -84,7 +84,7 @@ while {true} do
 		};
 	if ((_prestigeNATO > _prestigeSDK) and (lados getVariable [_ciudad,sideUnknown] == buenos)) then
 		{
-		["TaskFailed", ["", format ["%1 joined %2",[_ciudad, false] call A3A_fnc_fn_location,nameMalos]]] remoteExec ["BIS_fnc_showNotification",buenos];
+		["TaskFailed", ["", format ["%1 加入 %2",[_ciudad, false] call A3A_fnc_fn_location,nameMalos]]] remoteExec ["BIS_fnc_showNotification",buenos];
 		lados setVariable [_ciudad,malos,true];
 		_nul = [-5,0] remoteExec ["A3A_fnc_prestige",2];
 		_mrkD = format ["Dum%1",_ciudad];
@@ -115,11 +115,11 @@ while {true} do
 	_hrAddBLUFOR = (round _hrAddBLUFOR);
 	_recAddSDK = (round _recAddSDK);
 
-	_texto = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €",_hrAddBLUFOR,_recAddSDK];
+	_texto = format ["<t size='0.6' color='#C1C0BB'>税收.<br/> <t size='0.5' color='#C1C0BB'><br/>劳动力: +%1<br/>资金: +%2 €",_hrAddBLUFOR,_recAddSDK];
 	[] call A3A_fnc_FIAradio;
 	//_updated = false;
 	_updated = [] call A3A_fnc_arsenalManage;
-	if (_updated != "") then {_texto = format ["%1<br/>Arsenal Updated<br/><br/>%2",_texto,_updated]};
+	if (_updated != "") then {_texto = format ["%1<br/>军火库更新<br/><br/>%2",_texto,_updated]};
 	[petros,"taxRep",_texto] remoteExec ["A3A_fnc_commsMP",[buenos,civilian]];
 	_hrAddBLUFOR = _hrAddBLUFOR + (server getVariable "hr");
 	_recAddSDK = _recAddSDK + (server getVariable "resourcesFIA");

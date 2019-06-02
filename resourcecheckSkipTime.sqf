@@ -1,5 +1,5 @@
-cutText ["You decided to rest for some time","BLACK",5];
+cutText ["你决定休息一段时间","BLACK",5];
 sleep 10;
 skiptime 8;
 forceWeatherChange;
-cutText ["Time to go","BLACK IN",10];
+cutText ["是时候出发了","BLACK IN",10];

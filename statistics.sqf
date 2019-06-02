@@ -12,7 +12,7 @@ _setText ctrlSetBackgroundColor [0,0,0,0];
 _nombreC = "None";
 if (!isMultiplayer) then
 	{
-	_texto = format ["<t size='0.60'>" + "HR: %1 | %9 Money: %2 € | Airstrikes: %5 | %7 Aggr: %3 | %8 Aggr: %4 | War Level: %6 | Undercover Mode: %10", server getVariable "hr", server getVariable "resourcesFIA",floor prestigeNATO,floor prestigeCSAT,floor bombRuns,tierWar,nameMalos,nameMuyMalos,nameBuenos,["Off", "<t color='#1DA81D'>On</t>"] select ((captive player) and !(player getVariable ["INCAPACITATED",false]))];
+	_texto = format ["<t size='0.60'>" + "军衔: %1 | %9 资金: %2 € | 空袭: %5 | %7 侵略性: %3 | %8 侵略性: %4 | 战争等级: %6 | 伪装模式: %10", server getVariable "hr", server getVariable "resourcesFIA",floor prestigeNATO,floor prestigeCSAT,floor bombRuns,tierWar,nameMalos,nameMuyMalos,nameBuenos,["Off", "<t color='#1DA81D'>On</t>"] select ((captive player) and !(player getVariable ["INCAPACITATED",false]))];
 	}
 else
 	{
