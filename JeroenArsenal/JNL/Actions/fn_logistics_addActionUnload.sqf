@@ -10,7 +10,7 @@ if(!isnil "_unloadActionID") then
 
 //add action
 _unloadActionID = _vehicle addAction [
-	"Unload",
+	"卸出",
 	{
 		//(_this select 0) call jn_fnc_logistics_unLoad
 		[_this select 0] remoteexec ["jn_fnc_logistics_unload", 2];
@@ -18,7 +18,7 @@ _unloadActionID = _vehicle addAction [
 ];
 _vehicle setUserActionText [
 	_unloadActionID,
-	"Unload Cargo",
+	"卸出货物",
 	"<t size='2'><img image='\A3\ui_f\data\IGUI\Cfg\Actions\arrow_down_gs.paa'/></t>"
 ];
 _vehicle setVariable ["jnl_unloadActionID", _unloadActionID, false];

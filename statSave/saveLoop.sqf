@@ -1,4 +1,4 @@
-if (savingClient) exitWith {hint "Your personal stats are being saved"};
+if (savingClient) exitWith {hint "你的个人状态已被保存"};
 if (!isDedicated) then
 	{
 	if (side player == buenos) then
@@ -44,7 +44,7 @@ if (!isDedicated) then
 	};
 
  if (!isServer) exitWith {};
- if (savingServer) exitWith {"Server data save is still in progress" remoteExecCall ["hint",theBoss]};
+ if (savingServer) exitWith {"服务器数据保存仍在进行中" remoteExecCall ["hint",theBoss]};
  savingServer = true;
  private ["_garrison"];
 	["cuentaCA", cuentaCA] call fn_SaveStat;
@@ -276,5 +276,5 @@ _controles = controles select {(lados getVariable [_x,sideUnknown] == buenos) an
 ["controlesSDK",_controles] call fn_SaveStat;
 
 savingServer = false;
-[[petros,"hint",format ["Savegame Done.\n\nYou won't lose your stats in the event of a game update.\n\nRemember: if you want to preserve any vehicle, it must be near the HQ Flag with no AI inside.\nIf AI are inside, you will save the funds you spent on it.\n\nAI will be refunded\n\nStolen and purchased Static Weapons need to be ASSEMBLED in order to be saved. You can save disassembled Static Weapons in the ammo box.\n\nMounted Statics (Mortar/AA/AT squads) won't get saved, but you will be able to recover the cost.\n\nSame for assigned vehicles more than 50m away from HQ.\n\n%1 fund count:\nHR: %2\nMoney: %3 €",nameBuenos,_hrFondo,_resFondo]],"A3A_fnc_commsMP"] call BIS_fnc_MP;
-diag_log "Antistasi: Persistent Save Done";
+[[petros,"hint",format ["服务器存档保存完毕.\n\n你不会失去你的个人状态，尽管地图版本更新后.\n\n切记: 如果你想保存车辆，它必须在HQ旗杆附近，而且不能有AI在里面.\n如果AI在车内的话，你将会得到补偿.\n\nAI的费用将会被退还\n\n偷窃或者购买的固定式武器需要先组装，然后再保存至车库. 当然你也可以先分解它们，让后将之保存至军火库.\n\n有人操作的固定式武器（迫击炮/AA发射器/AT发射器班组）将不会被保存, 但你可以回收成本.\n\n同样适用于离HQ距离50m外的被指派给AI的载具.\n\n%1 资金清算:\n人力: %2\n金钱: %3 €",nameBuenos,_hrFondo,_resFondo]],"A3A_fnc_commsMP"] call BIS_fnc_MP;
+diag_log "Antistasi: 服务器进度保存成功";

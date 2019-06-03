@@ -39,14 +39,14 @@ _loadActionID = _object addAction [
 		_exit = false;
 		if(isNull _nearestVehicle) then
 		{
-			hint 'Bring vehicle closer';
+			hint '车辆离得太远';
 			_exit = true;
 		};
 		if (_cargo isKindOf "Man") then
 			{
 			if (([_cargo] call A3A_fnc_canFight) or !(isNull (_cargo getVariable ["ayudado",objNull])) or !(isNull attachedTo _cargo)) then
 				{
-				hint format ["%1 is being helped or no longer needs your help",name _cargo];
+				hint format ["%1 正在被帮助或者不在需要你的帮助",name _cargo];
 				_exit = true;
 				};
 			};
@@ -55,19 +55,19 @@ _loadActionID = _object addAction [
 		switch (_nodeID) do {
 			case -4:
 			{
-				hint 'Can not load cargo: passengers have occupied cargo space!';
+				hint '无法载入货物: 乘客占据的载货空间!';
 			};
 			case -3:
 			{
-				hint 'This vehicle can not carry this cargo!';
+				hint '此车无法运输该货物!';
 			};
 		    case -2:
 		    {
-		   	hint 'There is no space for this cargo!'
+		   	hint '货仓空间不足!'
 		    };
 		    case -1:
 		    {
-		   	hint 'Can not load this type of cargo!';
+		   	hint '无法载入此类型的货物!';
 		    };
 		    default
 		    {

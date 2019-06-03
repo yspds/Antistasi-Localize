@@ -365,7 +365,7 @@ SA_Attach_Tow_Ropes = {
 				_ropeLength = (ropeLength (_towRopes select 0));
 				_objDistance = ((_vehicle modelToWorld _vehicleHitch) distance (_cargo modelToWorld _cargoHitch));
 				if( _objDistance > _ropeLength ) then {
-					[["The tow ropes are too short. Move vehicle closer.", false],"SA_Hint",_player] call SA_RemoteExec;
+					[["牵引绳太短，把车开近些.", false],"SA_Hint",_player] call SA_RemoteExec;
 				} else {
 					[_vehicle,_player] call SA_Drop_Tow_Ropes;
 					_helper = "Land_Can_V2_F" createVehicle position _cargo;
@@ -473,7 +473,7 @@ SA_Attach_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _cargo > 1 ) then {
-				["Cannot attach tow ropes to locked vehicle",false] call SA_Hint;
+				["无法连接牵引绳至上锁的车辆",false] call SA_Hint;
 				_canBeTowed = false;
 			};
 		};
@@ -481,7 +481,7 @@ SA_Attach_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot attach tow ropes in safe zone",false] call SA_Hint;
+					["无法连接牵引绳在安全区内",false] call SA_Hint;
 					_canBeTowed = false;
 				};
 			};
@@ -519,7 +519,7 @@ SA_Take_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _vehicle > 1 ) then {
-				["Cannot take tow ropes from locked vehicle",false] call SA_Hint;
+				["无法连接牵引绳至上锁的车辆",false] call SA_Hint;
 				_canTakeTowRopes = false;
 			};
 		};
@@ -527,7 +527,7 @@ SA_Take_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot take tow ropes in safe zone",false] call SA_Hint;
+					["无法连接牵引绳在安全区内",false] call SA_Hint;
 					_canTakeTowRopes = false;
 				};
 			};
@@ -565,7 +565,7 @@ SA_Put_Away_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _vehicle > 1 ) then {
-				["Cannot put away tow ropes in locked vehicle",false] call SA_Hint;
+				["无法收回上锁车辆的牵引绳",false] call SA_Hint;
 				_canPutAwayTowRopes = false;
 			};
 		};
@@ -573,7 +573,7 @@ SA_Put_Away_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot put away tow ropes in safe zone",false] call SA_Hint;
+					["无法收回安全区内的牵引绳",false] call SA_Hint;
 					_canPutAwayTowRopes = false;
 				};
 			};
@@ -630,7 +630,7 @@ SA_Pickup_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _vehicle > 1 ) then {
-				["Cannot pick up tow ropes from locked vehicle",false] call SA_Hint;
+				["无法捡起已上锁车的牵引绳",false] call SA_Hint;
 				_canPickupTowRopes = false;
 			};
 		};
@@ -638,7 +638,7 @@ SA_Pickup_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot pick up tow ropes in safe zone",false] call SA_Hint;
+					["无法在安全区内捡起牵引绳",false] call SA_Hint;
 					_canPickupTowRopes = false;
 				};
 			};
@@ -735,23 +735,23 @@ SA_Set_Owner = {
 
 SA_Add_Player_Tow_Actions = {
 
-	player addAction ["Deploy Tow Ropes", {
+	player addAction ["部署牵引绳", {
 		[] call SA_Take_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check"];
 
-	player addAction ["Put Away Tow Ropes", {
+	player addAction ["收回牵引绳", {
 		[] call SA_Put_Away_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check"];
 
-	player addAction ["Attach To Tow Ropes", {
+	player addAction ["连接牵引绳", {
 		[] call SA_Attach_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check"];
 
-	player addAction ["Drop Tow Ropes", {
+	player addAction ["放下牵引绳", {
 		[] call SA_Drop_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check"];
 
-	player addAction ["Pickup Tow Ropes", {
+	player addAction ["捡起牵引绳", {
 		[] call SA_Pickup_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check"];
 
