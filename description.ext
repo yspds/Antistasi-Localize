@@ -2,7 +2,7 @@
 #include "dialogs.hpp"
 #include "taw_vd\GUI.h"
 
-author="Barbolani Modified by BMR & Localized by awei";
+author="Barbolani Modified by BMR & Localized by CNMS";
 OnLoadName = "Antistasi 游击战争 1.4";
 OnLoadMission = "成为抵抗力量的领袖，甚至英雄";
 loadScreen = "pic.JPG";

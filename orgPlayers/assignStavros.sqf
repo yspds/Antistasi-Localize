@@ -35,7 +35,7 @@ if (isNull _lider) then
 	_puntMax = 0;
 	_disconnected = true;
 	};
-_texto = "Promoted Players:\n\n";
+_texto = "晋升玩家:\n\n";
 _promoted = false;
 {
 _puntos = _x getVariable ["score",0];
@@ -60,7 +60,7 @@ if (_rank != "COLONEL") then
 
 if (_promoted) then
 	{
-	_texto = format ["%1\n\nCONGATULATIONS!!",_texto];
+	_texto = format ["%1\n\n恭喜!!",_texto];
 	[petros,"hint",_texto] remoteExec ["A3A_fnc_commsMP"];
 	};
 
