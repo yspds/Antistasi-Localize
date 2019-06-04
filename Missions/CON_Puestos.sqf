@@ -20,13 +20,13 @@ _texto = "";
 _taskName = "";
 if (_marcador in recursos) then
 	{
-	_texto = format ["A %1 would be a fine addition to our cause. Go there and capture it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4];
-	_taskName = "Resource Acquisition";
+	_texto = format ["一个 %1 对实现我们的目标来说是个不错的补充. 前去占领该点，在 %2:%3 以前.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4];
+	_taskName = "取得资源点";
 	}
 else
 	{
-	_texto = format ["A %1 is disturbing our operations in the area. Go there and capture it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4];
-	_taskName = "Take the Outpost";
+	_texto = format ["一个 %1 正在干扰我们在此区域的行动. 前去夺取该点，在 %2:%3 以前.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4];
+	_taskName = "夺取前哨站";
 	};
 
 

@@ -145,7 +145,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="基于Antistasi Altis 1.4部分汉化V0.2";
+		briefingName="Antistasi Altis 1.4部分汉化";
 		overviewText="领导当地游击队，打造自己的游击武装力量，对抗政府军和外部入侵势力的全地图动态任务.";
 		resistanceWest=0;
 		startWeather=0;
@@ -1395,7 +1395,7 @@ class Mission
 			dataType="Marker";
 			position[]={3607.0483,2.7037606e+012,10281.5};
 			name="respawn_guerrila";
-			text="Your Headquarters";
+			text="游击队指挥部";
 			type="hd_flag";
 			colorName="ColorGUER";
 			id=934;

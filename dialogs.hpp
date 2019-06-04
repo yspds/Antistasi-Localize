@@ -92,7 +92,7 @@ class HQ_menu 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "从阵营账户中取出100到个人账户中。It will damage your position among the faction in the commander career";
+			tooltip = "从阵营账户中取出100到个人账户中，它会影响你在本阵营指挥官位的信誉.";
 			action = "if (isMultiPlayer) then {if (player == theBoss) then {nul=call A3A_fnc_theBossSteal} else {hint ""只有指挥官才能使用此功能""}} else {hint ""This function is MP only""};";
 		};
 		class HQ_button_savegame: RscButton
@@ -114,7 +114,7 @@ class HQ_menu 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru";
+			tooltip = "老佩罗斯将会加入你的小队. 基地军火库弹药箱的库存必须清空. 找到新的位置后，面对老佩罗斯使用动作菜单即可.";
 			action = "closeDialog 0;if (player == theBoss) then {nul = [] spawn A3A_fnc_moveHQ;} else {hint ""只有指挥官才能使用此功能""};";
 		};
 		class HQ_button_recruitUnit: RscButton
@@ -125,7 +125,7 @@ class HQ_menu 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Displays which server members are currently playing";
+			tooltip = "显示当前正在游戏中的会员列表";
 			action = "if (player == theBoss) then {if (isMultiplayer) then {nul = [] call A3A_fnc_membersList} else {hint ""This function is MP only""}} else {hint ""只有指挥官才能使用此功能""};";
 		};
 		class HQ_button_recruitSquad: RscButton
@@ -142,12 +142,12 @@ class HQ_menu 			{
 		class HQ_button_vehicle: RscButton
 		{
 			idc = 109;	//R3
-			text = "训练友军AI"; //--- ToDo: Localize;
+			text = "友军AI升级"; //--- ToDo: Localize;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "";
+			tooltip = "提升本阵营的AI等级";
 			action = "closeDialog 0;if (player == theBoss) then {nul = [] call A3A_fnc_FIAskillAdd} else {hint ""只有指挥官才能使用此功能""};";
 		};
 		class HQ_button_skill: RscButton
@@ -181,7 +181,7 @@ class build_menu  			{
 		class HQ_frame: RscFrame
 		{
 			idc = -1;
-			text = "建造和驻军选项 Building & Garrison Options"; //--- ToDo: Localize;
+			text = "建造和驻军选项"; //--- ToDo: Localize;
 			x = 0.254979 * safezoneW + safezoneX;
 			y = 0.233941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
@@ -206,7 +206,7 @@ class build_menu  			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "AI will deploy or remove mines on desired objectives, using current arsenal mine count";
+			tooltip = "AI将在指定地区部署或移除地雷，其种类和数量取决于当前军火库中的地雷";
 			action = "closeDialog 0;_nul = createDialog ""minebuild_menu"";";
 		};
 		class 4slots_R1: RscButton
@@ -217,7 +217,7 @@ class build_menu  			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Establish a new watchpost or roadblock depending on the type of terrain you select";
+			tooltip = "建立一个野外观察哨或公路检查站，取决于所指定区域的地形类型.";
 			action = "closeDialog 0; [""create""] spawn A3A_fnc_puestoDialog";
 		};
 		class 4slots_L2: RscButton
@@ -228,7 +228,7 @@ class build_menu  			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Add units to an existing garrison";
+			tooltip = "添加单位驻军到一个已占领的区域";
 			action = "closeDialog 0; [""add""] spawn A3A_fnc_garrisonDialog";
 		};
 		class 4slots_R2: RscButton
@@ -240,7 +240,7 @@ class build_menu  			{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			//action = "closeDialog 0; [""delete""] spawn A3A_fnc_puestoDialog";
-			tooltip = "Remove whole garrisons or posts";
+			tooltip = "移除一个占领区的所有驻军";
 			action = "closeDialog 0; [""rem""] spawn A3A_fnc_garrisonDialog";
 		};
 	};
@@ -858,7 +858,7 @@ class game_options 		{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Sets how much local and simulated AI can spawn in the map. Affects performance and AI ""intelligence"". Use with caution. This is not an exact number as vehicles and squad leaders will allways spawn";
+			tooltip = "设置整个地图最多有多少AI单位. 这会显著影响性能和AI""智商"". 谨慎使用.";
 			action = "if (player == theBoss) then {closeDialog 0; nul = createDialog ""fps_limiter""} else {hint ""只有指挥官才能使用此功能""};";
 		};
 		class 8slots_R2: RscButton
@@ -927,7 +927,7 @@ class game_options 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "使用此选项保存当前游戏进度，它以GTA的方式保存最重要的数据. This opnion allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features";
+			tooltip = "使用此选项保存当前游戏进度，它以GTA的方式保存最重要的数据. This opnion allows good MP save and independent saves of any version update. 游戏原有的保存机制由于缺乏一些必要的功能已经禁用.";
 			action = "closeDialog 0;if (player == theBoss) then {[""statSave\saveLoop.sqf"",""BIS_fnc_execVM""] call BIS_fnc_MP} else {_nul = [] execVM ""statSave\saveLoop.sqf""; hintC ""个人进度已保存""};";
 		};
 	};
@@ -1316,7 +1316,7 @@ class radio_comm 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Several AI options";
+			tooltip = "一些关于AI的选项";
 			action = "if (player == leader group player) then {closeDialog 0;nul = createDialog ""AI_management""} else {hint ""Only group leaders may access to this option""};";
 		};
 		class 8slots_R4: RscButton
@@ -1327,7 +1327,7 @@ class radio_comm 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Open commander options";
+			tooltip = "打开指挥官选项";
 			action = "closeDialog 0; nul = createDialog ""commander_comm"";";
 		};
 	};

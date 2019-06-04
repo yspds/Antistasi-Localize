@@ -12,7 +12,7 @@ _exists = false;
 _silencio = false;
 if (count _this > 1) then {_silencio = true};
 
-if ([_tipo] call BIS_fnc_taskExists) exitWith {if (!_silencio) then {[petros,"globalChat","I already gave you a mission of this type"] remoteExec ["A3A_fnc_commsMP",theBoss]}};
+if ([_tipo] call BIS_fnc_taskExists) exitWith {if (!_silencio) then {[petros,"globalChat","我已经给过你一个同样类型的任务"] remoteExec ["A3A_fnc_commsMP",theBoss]}};
 
 if (_tipo == "AS") then
 	{
@@ -48,8 +48,8 @@ if (_tipo == "AS") then
 		{
 		if (!_silencio) then
 			{
-			[petros,"globalChat","I have no assasination missions for you. Move our HQ closer to the enemy or finish some other assasination missions in order to have better intel"] remoteExec ["A3A_fnc_commsMP",theBoss];
-			[petros,"hint","Assasination Missions require cities, Patrolled Jungles or Airports closer than 4Km from your HQ."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"globalChat","我暂时没有刺杀任务给你.将你的HQ搬至离敌人更近的地方，或者先完成其他的刺杀任务."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"hint","刺杀任务要求HQ方圆4KM内有城镇或机场."] remoteExec ["A3A_fnc_commsMP",theBoss];
 			};
 		}
 	else
@@ -70,8 +70,8 @@ if (_tipo == "CON") then
 		{
 		if (!_silencio) then
 			{
-			[petros,"globalChat","I have no Conquest missions for you. Move our HQ closer to the enemy or finish some other conquest missions in order to have better intel."] remoteExec ["A3A_fnc_commsMP",theBoss];
-			[petros,"hint","Conquest Missions require roadblocks or outposts closer than 4Km from your HQ."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"globalChat","我暂时没有征服任务给你.将你的HQ搬至离敌人更近的地方，或者先完成其他的刺杀任务."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"hint","征服任务要求HQ方圆4KM内有检查站或前哨站."] remoteExec ["A3A_fnc_commsMP",theBoss];
 			};
 		}
 	else
@@ -108,8 +108,8 @@ if (_tipo == "DES") then
 		{
 		if (!_silencio) then
 			{
-			[petros,"globalChat","I have no destroy missions for you. Move our HQ closer to the enemy or finish some other destroy missions in order to have better intel"] remoteExec ["A3A_fnc_commsMP",theBoss];
-			[petros,"hint","Destroy Missions require Airbases or Radio Towers closer than 4Km from your HQ."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"globalChat","我暂时没有摧毁任务给你.将你的HQ搬至离敌人更近的地方，或者先完成其他的刺杀任务."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"hint","摧毁任务要求HQ方圆4KM范围内有机场或信号塔."] remoteExec ["A3A_fnc_commsMP",theBoss];
 			};
 		}
 	else
@@ -165,8 +165,8 @@ if (_tipo == "LOG") then
 		{
 		if (!_silencio) then
 			{
-			[petros,"globalChat","I have no logistics missions for you. Move our HQ closer to the enemy or finish some other logistics missions in order to have better intel"] remoteExec ["A3A_fnc_commsMP",theBoss];
-			[petros,"hint","Logistics Missions require Outposts, Cities or Banks closer than 4Km from your HQ."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"globalChat","我暂时没用后勤任务给你.将你的HQ搬至离敌人更近的地方，或者先完成其他的后勤任务."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"hint","后勤任务要求HQ方圆4KM内有前哨站，城镇或银行."] remoteExec ["A3A_fnc_commsMP",theBoss];
 			};
 		}
 	else
@@ -194,8 +194,8 @@ if (_tipo == "RES") then
 		{
 		if (!_silencio) then
 			{
-			[petros,"globalChat","I have no rescue missions for you. Move our HQ closer to the enemy or finish some other rescue missions in order to have better intel"] remoteExec ["A3A_fnc_commsMP",theBoss];
-			[petros,"hint","Rescue Missions require Cities or Airports closer than 4Km from your HQ."] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"globalChat","我暂时没用营救任务给你.将你的HQ搬至离敌人更近的地方，或者先完成其他的营救任务"] remoteExec ["A3A_fnc_commsMP",theBoss];
+			[petros,"hint","营救任务要求HQ方圆4KM内有城镇或机场."] remoteExec ["A3A_fnc_commsMP",theBoss];
 			};
 		}
 	else
@@ -243,8 +243,8 @@ if (_tipo == "CONVOY") then
 			{
 			if (!_silencio) then
 				{
-				[petros,"globalChat","I have no Convoy missions for you. Move our HQ closer to the enemy or finish some other missions in order to have better intel"] remoteExec ["A3A_fnc_commsMP",theBoss];
-				[petros,"hint","Convoy Missions require Airports or Cities closer than 5Km from your HQ, and they must have an idle friendly base in their surroundings."] remoteExec ["A3A_fnc_commsMP",theBoss];
+				[petros,"globalChat","我暂时没用车队伏击任务给你.将你的HQ搬至离敌人更近的地方，或者先完成其他的车队伏击任务"] remoteExec ["A3A_fnc_commsMP",theBoss];
+				[petros,"hint","车队伏击任务要求HQ方圆5KM内有城镇或机场, 而且必须有一个闲置的敌方基地在附近."] remoteExec ["A3A_fnc_commsMP",theBoss];
 				};
 			}
 		else
@@ -256,8 +256,8 @@ if (_tipo == "CONVOY") then
 		}
 	else
 		{
-		[petros,"globalChat","There is a big battle around, I don't think the enemy will send any convoy"] remoteExec ["A3A_fnc_commsMP",theBoss];
-		[petros,"hint","Convoy Missions require a calmed status around the island, and now it is not the proper time."] remoteExec ["A3A_fnc_commsMP",theBoss];
+		[petros,"globalChat","附近正在激战，我不觉得敌人会派遣车队"] remoteExec ["A3A_fnc_commsMP",theBoss];
+		[petros,"hint","车队附近任务要求一个相对平息的状态在岛上，然而现在显然不是时候."] remoteExec ["A3A_fnc_commsMP",theBoss];
 		};
 	};
 

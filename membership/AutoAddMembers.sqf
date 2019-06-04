@@ -21,13 +21,13 @@ uiSleep 20;
 
 waitUntil{!isNull findDisplay 46 && getPlayerUID player != ''};  
 
-if !(membershipEnabled) exitWith {hint "Server Member feature is disabled"};
+if !(membershipEnabled) exitWith {hint "服务器会员功能已关闭"};
 
 if ((getPlayerUID player) in _GADDMembersList) then
 {
 	if  ((getPlayerUID player) in miembros) then
 	{
-		hint "Welcome back Server Member...";
+		hint "欢迎回来，亲爱的会员...";
 		_areTheyMember = "Yes";
 	} else {
 		miembros pushBackUnique _uid;
@@ -42,7 +42,7 @@ if ((getPlayerUID player) in _GADDMembersList) then
 		hint "Welcome Player, you are still a Member.";
 		_areTheyMember = "Yes";
 	} else {
-		hint "Welcome Guest, to become a member on the server and be able to do all that a member can do, you need to ask.";
+		hint "欢迎游客, 如果想成为此服务器的会员并使用会员的所有功能，你需要提出申请.";
 	};
 };
 

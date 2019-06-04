@@ -1,10 +1,10 @@
 private ["_vehInGarage","_chequeo"];
 
 pool = !(_this select 0);
-if (pool and (not([player] call A3A_fnc_isMember))) exitWith {hint "You cannot access the Garage as you are guest in this server"};
-if (player != player getVariable "owner") exitWith {hint "You cannot access the Garage while you are controlling AI"};
+if (pool and (not([player] call A3A_fnc_isMember))) exitWith {hint "你不能以游客身份访问车库"};
+if (player != player getVariable "owner") exitWith {hint "你不能在控制AI的同时访问车库"};
 
-if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {Hint "You cannot manage the Garage with enemies nearby"};
+if ([player,300] call A3A_fnc_enemyNearCheck) exitWith {Hint "当敌人在附近时你无法打开车库"};
 vehInGarageShow = [];
 _hayAire = false;
 _aeropuertos = aeropuertos select {(lados getVariable [_x,sideUnknown] == buenos) and (player inArea _x)};

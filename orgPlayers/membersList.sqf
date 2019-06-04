@@ -1,4 +1,4 @@
-if !(membershipEnabled) exitWith {hint "Server Member feature is disabled"};
+if !(membershipEnabled) exitWith {hint "服务器会员功能已关闭"};
 private ["_cuenta"];
 _texto = "In Game Members\n\n";
 _cuentaN = 0;

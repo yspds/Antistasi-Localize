@@ -3,7 +3,7 @@
 #include "taw_vd\GUI.h"
 
 author="Barbolani Modified by BMR & Localized by CNMS";
-OnLoadName = "Antistasi 游击战争 1.4";
+OnLoadName = "游击战争汉化版（基于1.4 BMR版修改）";
 OnLoadMission = "成为抵抗力量的领袖，甚至英雄";
 loadScreen = "pic.JPG";
 
@@ -170,7 +170,7 @@ class Params
     };
     class memberDistance
     {
-        title = "Max distance non members can be from the closest member or HQ (they will be teleported to HQ after some timeout)";
+        title = "非会员玩家距离HQ和会员玩家的最大安全距离(超出此距离则会被强制传送至HQ)";
         values[] = {4000,5000,6000,7000,8000,16000};
         texts[] = {"4 Kmts","5 Kmts","6 Kmts","7 Kmts","8 Kmts","Unlimited"};
         default = 5000;

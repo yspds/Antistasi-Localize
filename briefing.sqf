@@ -72,7 +72,7 @@ player createDiaryRecord ["Options",["平民数量","增加或减少城市平民
 player createDiaryRecord ["Options",["音乐开/关","游击战争中有一个情景音乐脚本，取决于玩家的立场和一天中的时间。多人游戏中的默认值为“关”，而在单人游戏中为“开”。"]];
 player createDiaryRecord ["Options",["游戏进度保存","只有指挥官可用。 你可以在总部地图上保存游戏。这将允许您在任务更新或服务器重新启动时继续游戏，保留统计信息、玩家设备、被征服区域、敌人资产可用性和更多内容。警告：正常保存和加载在此任务中运行不正常。这个系统是你正确保存游戏的唯一保证"]];
 player createDiaryRecord ["Options",["AI总数量限制","只有指挥官可用。 设置每台服务器或每台主机映射中的最大AI量。"]];
-player createDiaryRecord ["Options",["地图信息","点击一个城市，了解他们对敌人或派系的支持力度。点击其他区域了解相关信息。"]];
+player createDiaryRecord ["Options",["地图信息","点击一个城市，了解他们对敌人或游击队的支持力度。点击其他区域了解相关信息。"]];
 
 player createDiaryRecord ["Diary",["鸣谢","<br/>LanCommi 插图.<br/>Goon 和 jw custom: 部分凝固汽油弹脚本.<br/>rebel12340: 无线电脚本<br/>Manko: 耳塞脚本<br/>bobchaos: 机制设定管理<br/>和所有花时间在STEAM、Github和BIS论坛上发表评论、建议和报告的玩家"]];
 player createDiaryRecord ["Diary",["模组","集成（可选）模组:<br/>tfar：当玩家无意识时声音被禁用无线电集成模组。<br/>ACE医疗模组: 与自动治疗功能不兼容。<br/><br/>警告：系统自动保存无法保持稳定，请使用游戏地图互动保存。<br/><br/>任何客户端的mod，如jsrs、blastcore、ui mod都可以工作。<br/><br/>当单位和车辆模型不工作。AI可能会出现智障的情况）。"]];
