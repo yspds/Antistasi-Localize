@@ -261,4 +261,4 @@ if (_tipo == "CONVOY") then
 		};
 	};
 
-if ((count _posibles > 0) and (!_silencio)) then {[petros,"globalChat","I have a mission for you"] remoteExec ["A3A_fnc_commsMP",theBoss]};
+if ((count _posibles > 0) and (!_silencio)) then {[petros,"globalChat","我有一个任务给你"] remoteExec ["A3A_fnc_commsMP",theBoss]};

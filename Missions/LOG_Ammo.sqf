@@ -25,7 +25,7 @@ _pos = position _road;
 _pos = _pos findEmptyPosition [1,60,_tipoVeh];
 if (count _pos == 0) then {_pos = position _road};
 
-[[buenos,civilian],"LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_pos,false,0,true,"rearm",true] call BIS_fnc_taskCreate;
+[[buenos,civilian],"LOG",[format ["我们已侦查到一辆敌方弹药卡车在 %1. 偷取或者摧毁它在 %2:%3 之前.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_pos,false,0,true,"rearm",true] call BIS_fnc_taskCreate;
 _camionCreado = false;
 misiones pushBack ["LOG","CREATED"]; publicVariable "misiones";
 
@@ -70,7 +70,7 @@ if ((spawner getVariable _marcador != 2) and !(lados getVariable [_marcador,side
 
 	if (dateToNumber date > _fechalimnum) then
 		{
-		["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_posicion,"FAILED","rearm"] call A3A_fnc_taskUpdate;
+		["LOG",[format ["我们已侦查到一辆敌方弹药卡车在 %1. 偷取或者摧毁它在 %2:%3 之前.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_posicion,"FAILED","rearm"] call A3A_fnc_taskUpdate;
 		[-1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
@@ -81,7 +81,7 @@ if ((spawner getVariable _marcador != 2) and !(lados getVariable [_marcador,side
 			["TaskFailed", ["", format ["Ammotruck Stolen in an %1",_nombreDest]]] remoteExec ["BIS_fnc_showNotification",_lado];
 			};
 		[getPosASL _camion,_lado,"",false] spawn A3A_fnc_patrolCA;
-		["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_posicion,"SUCCEEDED","rearm"] call A3A_fnc_taskUpdate;
+		["LOG",[format ["我们已侦查到一辆敌方弹药卡车在 %1. 偷取或者摧毁它在 %2:%3 之前.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_posicion,"SUCCEEDED","rearm"] call A3A_fnc_taskUpdate;
 		[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _camion < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
@@ -90,7 +90,7 @@ if ((spawner getVariable _marcador != 2) and !(lados getVariable [_marcador,side
 	}
 else
 	{
-	["LOG",[format ["We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_posicion,"FAILED","rearm"] call A3A_fnc_taskUpdate;
+	["LOG",[format ["我们已侦查到一辆敌方弹药卡车在 %1. 偷取或者摧毁它在 %2:%3 之前.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4],"Steal or Destroy Ammotruck",_marcador],_posicion,"FAILED","rearm"] call A3A_fnc_taskUpdate;
 	[-1200*_bonus] remoteExec ["A3A_fnc_timingCA",2];
 	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	};

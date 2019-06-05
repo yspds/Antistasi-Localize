@@ -19,7 +19,7 @@ _nombredest = [_marcador] call A3A_fnc_localizar;
 
 _tipoVeh = if (_lado == malos) then {vehNATOAA} else {vehCSATAA};
 
-[[buenos,civilian],"DES",[format ["We know an enemy armor (%4) is stationed in %1. It is a good chance to destroy or steal it before it causes more damage. Do it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,getText (configFile >> "CfgVehicles" >> (_tipoVeh) >> "displayName")],"Steal or Destroy Armor",_marcador],_posicion,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+[[buenos,civilian],"DES",[format ["我们获悉到敌人一个装甲载具 (%4) 正停放在 %1. 这是一个偷取或摧毁它的好机会, 以免它给我们造成更多的损失. 在 %2:%3 之前完成它.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,getText (configFile >> "CfgVehicles" >> (_tipoVeh) >> "displayName")],"Steal or Destroy Armor",_marcador],_posicion,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 _camionCreado = false;
 misiones pushBack ["DES","CREATED"]; publicVariable "misiones";
 
@@ -63,7 +63,7 @@ if (spawner getVariable _marcador == 0) then
 
 	if ((not alive _veh) or ({(_x getVariable ["spawner",false]) and (side group _x == buenos)} count crew _veh > 0)) then
 		{
-		["DES",[format ["We know an enemy armor (%4) is stationed in a %1. It is a good chance to steal or destroy it before it causes more damage. Do it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,getText (configFile >> "CfgVehicles" >> (_tipoVeh) >> "displayName")],"Steal or Destroy Armor",_marcador],_posicion,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
+		["DES",[format ["我们获悉到敌人一个装甲载具 (%4) 正停放在 %1. 这是一个偷取或摧毁它的好机会, 以免它给我们造成更多的损失. 在 %2:%3 之前完成它.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,getText (configFile >> "CfgVehicles" >> (_tipoVeh) >> "displayName")],"Steal or Destroy Armor",_marcador],_posicion,"SUCCEEDED","Destroy"] call A3A_fnc_taskUpdate;
 		if ({(_x getVariable ["spawner",false]) and (side group _x == buenos)} count crew _veh > 0) then
 			{
 			["TaskFailed", ["", format ["AA Stolen in %1",_nombreDest]]] remoteExec ["BIS_fnc_showNotification",_lado];
@@ -77,7 +77,7 @@ if (spawner getVariable _marcador == 0) then
 	}
 else
 	{
-	["DES",[format ["We know an enemy armor (%4) is stationed in a %1. It is a good chance to steal or destroy it before it causes more damage. Do it before %2:%3.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,getText (configFile >> "CfgVehicles" >> (_tipoVeh) >> "displayName")],"Steal or Destroy Armor",_marcador],_posicion,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
+	["DES",[format ["我们获悉到敌人一个装甲载具 (%4) 正停放在 %1. 这是一个偷取或摧毁它的好机会, 以免它给我们造成更多的损失. 在 %2:%3 之前完成它.",_nombredest,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,getText (configFile >> "CfgVehicles" >> (_tipoVeh) >> "displayName")],"Steal or Destroy Armor",_marcador],_posicion,"FAILED","Destroy"] call A3A_fnc_taskUpdate;
 	[-5*_bonus,-100*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
 	[5*_bonus,0,_posicion] remoteExec ["A3A_fnc_citySupportChange",2];
 	[-600*_bonus] remoteExec ["A3A_fnc_timingCA",2];

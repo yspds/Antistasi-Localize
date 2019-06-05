@@ -78,42 +78,42 @@ switch (_tipoConvoy) do
 	{
 	case "Municion":
 		{
-		_texto = format ["A convoy from %1 is about to depart at %2:%3. It will provide ammunition to %4. Try to intercept it. Steal or destroy that truck before it reaches it's destination.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
+		_texto = format ["一个车队将在 %2:%3 从 %1 出发，它将运送弹药至目的地 %4. 想办法去拦截它. 在其抵达目的地之前将其摧毁或者夺取.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
 		_taskTitle = "Ammo Convoy";
 		_taskIcon = "rearm";
 		_tipoVehObj = if (_lado == malos) then {vehNATOAmmoTruck} else {vehCSATAmmoTruck};
 		};
 	case "Armor":
 		{
-		_texto = format ["A convoy from %1 is about to depart at %2:%3. It will reinforce %4 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
+		_texto = format ["一个武装车队将在 %2:%3 从 %1 出发，它们将会增援至目的地 %4. 想办法去拦截它. 在其抵达目的地之前将其摧毁或者夺取.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
 		_taskTitle = "Armored Convoy";
 		_taskIcon = "Destroy";
 		_tipoVehObj = if (_lado == malos) then {vehNATOAA} else {vehCSATAA};
 		};
 	case "Prisoners":
 		{
-		_texto = format ["A group os POW's is being transported from %1 to %4, and it's about to depart at %2:%3. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
+		_texto = format ["一群战俘正在从 %1 被转运至 %4， 他们将与 %2:3% 出发. 想办法去拦截它. 干掉或者俘虏卡车驾驶员，然后把战俘带回基地，这样他们便会加入我们阵营，当然最好是活着的.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
 		_taskTitle = "Prisoner Convoy";
 		_taskIcon = "run";
 		_tipoVehObj = if (_lado == malos) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
 		};
 	case "Refuerzos":
 		{
-		_texto = format ["Reinforcements are being sent from %1 to %4 in a convoy, and it's about to depart at %2:%3. Try to intercept and kill all the troops and vehicle objective.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
+		_texto = format ["增援车队正准备从 %1 派往 %4，它们将与 %2:%3 出发. 想办法拦截它，干掉所有的车辆和人员目标.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
 		_taskTitle = "Reinforcements Convoy";
 		_taskIcon = "run";
 		_tipoVehObj = if (_lado == malos) then {selectRandom vehNATOTrucks} else {selectRandom vehCSATTrucks};
 		};
 	case "Money":
 		{
-		_texto = format ["A truck plenty of money is being moved from %1 to %4, and it's about to depart at %2:%3. Steal that truck and bring it to HQ. Those funds will be very welcome.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
+		_texto = format ["一个满载现金的卡车正在从 %1 前往 %4，它将在 %2:%3 出发. 把它偷到手并带回基地，这些资金将都是我们的. Those funds will be very welcome.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest];
 		_taskTitle = "Money Convoy";
 		_taskIcon = "move";
 		_tipoVehObj = "C_Van_01_box_F";
 		};
 	case "Supplies":
 		{
-		_texto = format ["A truck with medical supplies destination %4 it's about to depart at %2:%3 from %1. Steal that truck bring it to %4 and let people in there know it is %5 who's giving those supplies.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest,nameBuenos];
+		_texto = format ["一个满载医疗物资的卡车，将与 %2:%3 从 %1 出发前往 %4. 把它偷到手并送往 %4 好让当地民众知道是 %5 给他们带来了补给.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest,nameBuenos];
 		_taskTitle = "Supply Convoy";
 		_taskIcon = "heal";
 		_tipoVehObj = "C_Van_01_box_F";
@@ -121,7 +121,7 @@ switch (_tipoConvoy) do
 	};
 
 [[buenos,civilian],"CONVOY",[_texto,_taskTitle,_destino],_posdestino,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-[[_lado],"CONVOY1",[format ["A convoy from %1 to %4, it's about to depart at %2:%3. Protect it from any possible attack.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest],"Protect Convoy",_destino],_posdestino,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[_lado],"CONVOY1",[format ["一个车队将于 %2:%3 从 %1 发往 %4. 保护它们免受一切可能的攻击.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest],"Protect Convoy",_destino],_posdestino,false,0,true,"run",true] call BIS_fnc_taskCreate;
 misiones pushBack ["CONVOY","CREATED"]; publicVariable "misiones";
 sleep (_tiempolim * 60);
 
@@ -628,7 +628,7 @@ if (_tipoConvoy == "Supplies") then
 	};
 
 ["CONVOY",[_texto,_taskTitle,_destino],_posdestino,_taskState] call A3A_fnc_taskUpdate;
-["CONVOY1",[format ["A convoy from %1 to %4, it's about to depart at %2:%3. Protect it from any possible attack.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest],"Protect Convoy",_destino],_posdestino,_taskState1] call A3A_fnc_taskUpdate;
+["CONVOY1",[format ["一个车队将于 %2:%3 从 %1 出发到 %4, 保护它免收任何潜在的攻击.",_nombreorig,numberToDate [2035,_fechalimnum] select 3,numberToDate [2035,_fechalimnum] select 4,_nombredest],"Protect Convoy",_destino],_posdestino,_taskState1] call A3A_fnc_taskUpdate;
 _wp0 = _grupo addWaypoint [_posbase, 0];
 _wp0 setWaypointType "MOVE";
 _wp0 setWaypointBehaviour "SAFE";
