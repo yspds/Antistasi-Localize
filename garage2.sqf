@@ -19,17 +19,17 @@ else
 	vehInGarageShow pushBack _x;
 	};
 } forEach (if (pool) then {vehInGarage} else {personalGarage});
-if (count vehInGarageShow == 0) exitWith {hintC "The Garage is empty or the vehicles you have are not suitable to recover in the place you are.\n\nAir vehicles need to be recovered near Airport flags."};
+if (count vehInGarageShow == 0) exitWith {hintC "车库是空的，或你拥有的载具不适合在此处放置.\n\n空中载具需要在机场旗杆处取出."};
 _cercano = [marcadores select {lados getVariable [_x,sideUnknown] == buenos},player] call BIS_fnc_nearestPosition;
-if !(player inArea _cercano) exitWith {hint "You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage"};
+if !(player inArea _cercano) exitWith {hint "你需要靠近你的驻军点才能从车库中取出车辆."};
 cuentaGarage = 0;
 _tipo = vehInGarageShow select cuentaGarage;
 garageVeh = _tipo createVehicleLocal [0,0,1000];
 garageVeh allowDamage false;
 garageVeh enableSimulationGlobal false;
 comprado = 0;
-[format ["<t size='0.7'>%1<br/><br/><t size='0.6'>Garage Keys.<t size='0.5'><br/>Arrow Up-Down to Navigate<br/>Arrow Left-Right to rotate<br/>SPACE to Select<br/>ENTER to Exit",getText (configFile >> "CfgVehicles" >> typeOf garageVeh >> "displayName")],0,0,5,0,0,4] spawn bis_fnc_dynamicText;
-hint "Hover your mouse to the desired position. If it's safe and suitable, you will see the vehicle";
+[format ["<t size='0.7'>%1<br/><br/><t size='0.6'>车库控制键.<t size='0.5'><br/>使用 上下光标键 浏览车辆<br/>使用 左右光标键 旋转车辆<br/>使用 空格键 放置车辆<br/>使用 回车键 退出",getText (configFile >> "CfgVehicles" >> typeOf garageVeh >> "displayName")],0,0,5,0,0,4] spawn bis_fnc_dynamicText;
+hint "移动你的鼠标到你想要取出车辆的理想位置. 如果位置合适，车辆将显示出来.";
 garageKeys = (findDisplay 46) displayAddEventHandler ["KeyDown",
 		{
 		_handled = false;
@@ -81,7 +81,7 @@ garageKeys = (findDisplay 46) displayAddEventHandler ["KeyDown",
 				garageVeh = _tipo createVehicleLocal [0,0,1000];
 				garageVeh allowDamage false;
 				garageVeh enableSimulationGlobal false;
-				[format ["<t size='0.7'>%1<br/><br/><t size='0.6'>Garage Keys.<t size='0.5'><br/>Arrow Up-Down to Navigate<br/>Arrow Left-Right to rotate<br/>SPACE to Select<br/>ENTER to Exit",getText (configFile >> "CfgVehicles" >> typeOf garageVeh >> "displayName")],0,0,5,0,0,4] spawn bis_fnc_dynamicText;
+				[format ["<t size='0.7'>%1<br/><br/><t size='0.6'>车库控制键.<t size='0.5'><br/>使用 上下光标键 浏览车辆<br/>使用 左右光标键 旋转车辆<br/>使用 空格键 放置车辆<br/>使用 回车键 退出",getText (configFile >> "CfgVehicles" >> typeOf garageVeh >> "displayName")],0,0,5,0,0,4] spawn bis_fnc_dynamicText;
 				};
 			};
 		if (_salir) then
@@ -95,12 +95,12 @@ garageKeys = (findDisplay 46) displayAddEventHandler ["KeyDown",
 				{
 				if (garageVeh distance [0,0,1000] <= 1500) then
 					{
-					["<t size='0.6'>The current position is not suitable for the vehicle. Try another",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+					["<t size='0.6'>当前放置位置不适合你的车辆，请尝试其他位置.",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
 					}
 				else
 					{
 					comprado = 2;
-					["<t size='0.6'>Vehicle retrieved from Garage",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+					["<t size='0.6'>车辆已从车库中取出.",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
 					};
 				};
 			};
@@ -139,10 +139,10 @@ _pos = getPosASL garageVeh;
 _dir = getDir garageVeh;
 _tipo = typeOf garageVeh;
 deleteVehicle garageVeh;
-if !(player inArea _cercano) then {hint "You need to be close to one of your garrisons to be able to retrieve a vehicle from your garage";["",0,0,5,0,0,4] spawn bis_fnc_dynamicText; comprado = nil; garageVeh = nil; cuentaGarage = nil};
+if !(player inArea _cercano) then {hint "你需要靠近你的驻军点才能从车库中取出车辆";["",0,0,5,0,0,4] spawn bis_fnc_dynamicText; comprado = nil; garageVeh = nil; cuentaGarage = nil};
 if ([player,300] call A3A_fnc_enemyNearCheck) then
 	{
-	hint "You cannot manage the Garage with enemies nearby";
+	hint "你不能在周围有敌人的情况下使用车库.";
 	comprado = 0;
 	};
 if (comprado != 2) exitWith {comprado = nil; garageVeh = nil; cuentaGarage = nil};
