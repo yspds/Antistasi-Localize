@@ -1,6 +1,6 @@
 if !(membershipEnabled) exitWith {hint "服务器会员功能已关闭"};
 private ["_cuenta"];
-_texto = "In Game Members\n\n";
+_texto = "当前游戏中会员数量\n\n";
 _cuentaN = 0;
 
 {
@@ -12,6 +12,6 @@ if (!isNull _jugador) then
 	};
 } forEach playableUnits;
 
-_texto = format ["%1\nNo members:\n%2",_texto,_cuentaN];
+_texto = format ["%1\n非会员数量:\n%2",_texto,_cuentaN];
 
 hint format ["%1",_texto];
